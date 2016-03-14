@@ -3,11 +3,16 @@ import os
 file = open("xwikiDownloadPage.html","r")
 
 latest = ""
+packageList = []
 for line in file:
-    if re.search('xwiki-enterprise-web-([0-9].)+war',line):
-        latest =  line
+    latest = re.search('xwiki-enterprise-web-([0-9].)+war',line)
+    if latest != None:
+        latest = re.search('xwiki-enterprise-web-([0-9].)+war',line).group(0)
+        latest = re.sub('.war', '', latest)
+        packageList.append(latest)
 
-xwikiPackage = re.search('xwiki-enterprise-web-([0-9].)+war',latest).group(0)
+packageList.sort()
+latest = packageList[-1] + '.war'
 
-print 'wget "http://download.forge.ow2.org/xwiki/'+ xwikiPackage + '" -P /'
-print 'unzip "/' + xwikiPackage + '" -d /var/lib/tomcat7/webapps/xwiki'
+print 'wget "http://download.forge.ow2.org/xwiki/'+ latest + '" -P /'
+print 'unzip "/' + latest + '" -d /var/lib/tomcat7/webapps/xwiki'
