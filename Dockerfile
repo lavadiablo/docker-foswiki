@@ -30,7 +30,6 @@ RUN perl -i -p0e "s/# environment.permanentDirectory/  environment.permanentDire
 RUN perl -i -p0e "s/# openoffice.taskExecutionTimeout=30000/  openoffice.taskExecutionTimeout=300000/smg" /var/lib/tomcat8/webapps/xwiki/WEB-INF/xwiki.properties
 RUN perl -i -p0e "s/# openoffice.autoStart=false/  openoffice.autoStart=true/smg" /var/lib/tomcat8/webapps/xwiki/WEB-INF/xwiki.properties
 COPY ./conf/hibernate.cfg.xml /var/lib/tomcat8/webapps/xwiki/WEB-INF/hibernate.cfg.xml
-COPY ./conf/server.xml /etc/tomcat8/server.xml
 ENV JAVA_OPTS="-server -Xms400m -Xmx800m -XX:MaxPermSize=222m -Dfile.encoding=utf-8 -Djava.awt.headless=true -XX:+UseParallelGC -XX:MaxGCPauseMillis=100"
 
 #Start
