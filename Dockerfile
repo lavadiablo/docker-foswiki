@@ -24,9 +24,7 @@ RUN \
     \
     \
     echo "===> clean up..."  && \
-    rm -rf /var/cache/oracle-jdk8-installer  && \
-    apt-get clean  && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/cache/oracle-jdk8-installer
 
 #tools
 RUN apt-get -y --force-yes install wget unzip tomcat7 curl python nano libreoffice
