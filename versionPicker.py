@@ -15,4 +15,4 @@ packageList.sort()
 latest = packageList[-1] + '.war'
 
 print ('wget "http://download.forge.ow2.org/xwiki/'+ latest + '" -P /')
-print ('unzip "/' + latest + '" -d /var/lib/tomcat7/webapps/xwiki')
+print ('unzip "/' + latest + '" -d /var/lib/tomcat8/webapps/xwiki')
